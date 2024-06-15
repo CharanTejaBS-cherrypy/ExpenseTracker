@@ -148,16 +148,23 @@ input[type='number'] {
   outline: 0;
 }
 
-.list {
+/* .list{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   list-style-type: none;
   padding: 0;
-  margin-bottom: 40px;
-  max-height: 300px; /* Set a max height */
-  overflow-y: auto;  /* Enable vertical scrolling */
+  margin-bottom: 0px;
+  max-height: 400px; 
+  overflow-y: auto;  
+}*/
+
+.list {
+list-style-type: none;
+padding: 0;
+  max-height: 200px; /* Set a maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .list li {
@@ -172,6 +179,7 @@ input[type='number'] {
   margin: 10px 0;
   border-radius: 4px;
   transition: transform 0.3s ease;
+  margin-left: 10px;
 }
 
 .list li:hover {
