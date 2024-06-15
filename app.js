@@ -193,6 +193,28 @@ function addTransaction(e) {
   category.value = "";
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const listContainer = document.querySelector(".list-container");
+  const list = document.getElementById("list");
+
+  // Function to adjust list container height based on list content
+  const adjustListHeight = () => {
+    const listHeight = list.scrollHeight;
+    listContainer.style.height = listHeight + "px";
+  };
+
+  // Event listener for when a new transaction is added
+  document.addEventListener("transactionAdded", adjustListHeight);
+
+  // Example of how to trigger the event (adjust this based on your Vue.js code)
+  const emitTransactionAdded = () => {
+    const event = new Event("transactionAdded");
+    document.dispatchEvent(event);
+  };
+
+  emitTransactionAdded(); // Trigger the event initially
+});
+
 // Generate random ID
 function generateID() {
   return Math.floor(Math.random() * 100000000);
