@@ -206,3 +206,84 @@ input[type='number'] {
 .list li:hover .delete-btn {
   opacity: 1;
 }
+
+/* Existing CSS... */
+
+/* .category-container {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.category-container .category-card {
+  background-color: #f4f4f4;
+  border: 1px solid #dedede;
+  border-radius: var(--border-radius);
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.category-container .category-card:hover {
+  background-color: #e2e2e2;
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+#category-chart {
+  width: 100%;
+  height: auto;
+} */
+
+.category-container {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  padding: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.category-container .category-card {
+  background-color: #f4f4f4;
+  border: 1px solid #dedede;
+  border-radius: 50%;
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-container .category-card:hover {
+  background-color: #e2e2e2;
+}
+
+.category-card i {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+/* Chart styling */
+#category-chart {
+  background-color: #ffffffdd;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 10px;
+}
