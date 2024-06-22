@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="https://github.com/CharanTejaBS6/photos/blob/main/Expense%20tracker.png?raw=true" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Tracker</title>
     <link rel="stylesheet" href="style.css" />
@@ -36,10 +36,15 @@
           <input type="text" id="text" placeholder="Enter text..." />
         </div>
         <div class="form-control">
+          <label for="type">Transaction Type</label>
+          <div class="transaction-type">
+            <button type="button" class="btn btn-half" onclick="setTransactionType('income')">Income</button>
+            <button type="button" class="btn btn-half" onclick="setTransactionType('expense')">Expense</button>
+          </div>
+        </div>                
+        <div class="form-control">
           <label for="amount"
             >Amount <br />
-            <p class="sm">(negative - expense, positive - income)</p></label
-          >
           <input type="number" id="amount" placeholder="Enter amount..." />
         </div>
         <div class="form-control">
@@ -60,7 +65,7 @@
       <ul id="list" class="list"></ul>
     </div>
     <div class="chart-container">
-      <h3 style="text-align: center;margin-bottom:20px">Transaction Chart</h3>
+      <h3 style="text-align: center;margin-bottom:20px">Expense Chart</h3>
       <canvas id="category-chart"></canvas>
     </div>
     <script src="app.js"></script>
