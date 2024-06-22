@@ -10,7 +10,7 @@ const categoryContainer = document.getElementById("category-container");
 
 const categories = [
   { name: "Food", icon: "fas fa-utensils" },
-  { name: "Traspo", icon: "fas fa-bus" },
+  { name: "Travel", icon: "fas fa-bus" },
   { name: "Film", icon: "fas fa-film" },
   { name: "Shop", icon: "fas fa-shopping-bag" },
   { name: "Health", icon: "fas fa-heartbeat" },
@@ -79,13 +79,92 @@ function addTransactionDOM(transaction) {
   list.appendChild(item);
 }
 
+// function updateChart() {
+//   const categoryTotals = categories.reduce((acc, cat) => {
+//     acc[cat.name] = 0;
+//     return acc;
+//   }, {});
+
+//   transactions.forEach((transaction) => {
+//     categoryTotals[transaction.category] += transaction.amount;
+//   });
+
+//   const chartData = {
+//     labels: categories.map((cat) => cat.name),
+//     datasets: [
+//       {
+//         data: categories.map((cat) => Math.abs(categoryTotals[cat.name])),
+//         backgroundColor: [
+//           "#ff6384",
+//           "#36a2eb",
+//           "#cc65fe",
+//           "#ffce56",
+//           "#2e7d32",
+//           "#c2185b",
+//           "#7e57c2",
+//           "#26c6da",
+//           "#ff7043",
+//           "#66bb6a",
+//           "#ffee58",
+//           "#8d6e63",
+//           "#9ccc65",
+//           "#ffab40",
+//           "#7e57c2",
+//           "#78909c",
+//         ],
+//       },
+//     ],
+//   };
+
+//   const chartOptions = {
+//     responsive: true,
+//     plugins: {
+//       legend: {
+//         position: "top",
+//       },
+//       tooltip: {
+//         callbacks: {
+//           label: function (context) {
+//             let label = context.label || "";
+//             if (label) {
+//               label += ": ";
+//             }
+//             if (context.parsed !== null) {
+//               label += new Intl.NumberFormat("en-US", {
+//                 style: "currency",
+//                 currency: "INR",
+//               }).format(context.parsed);
+//             }
+//             return label;
+//           },
+//         },
+//       },
+//     },
+//   };
+
+//   if (window.categoryChart) {
+//     window.categoryChart.data = chartData;
+//     window.categoryChart.update();
+//   } else {
+//     const ctx = document.getElementById("category-chart").getContext("2d");
+//     window.categoryChart = new Chart(ctx, {
+//       type: "doughnut",
+//       data: chartData,
+//       options: chartOptions,
+//     });
+//   }
+// }
 function updateChart() {
+  const expenseTransactions = transactions.filter(
+    (transaction) => transaction.amount < 0
+  );
+
   const categoryTotals = categories.reduce((acc, cat) => {
     acc[cat.name] = 0;
     return acc;
   }, {});
 
-  transactions.forEach((transaction) => {
+  expenseTransactions.forEach((transaction) => {
     categoryTotals[transaction.category] += transaction.amount;
   });
 
@@ -214,6 +293,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
   emitTransactionAdded(); // Trigger the event initially
 });
+
+let transactionType = "expense";
+
+function setTransactionType(type) {
+  transactionType = type;
+}
+
+function addTransaction(e) {
+  e.preventDefault();
+
+  if (
+    text.value.trim() === "" ||
+    amount.value.trim() === "" ||
+    category.value.trim() === ""
+  ) {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  const amountValue = +amount.value * (transactionType === "expense" ? -1 : 1);
+
+  const transaction = {
+    id: generateID(),
+    text: text.value,
+    amount: amountValue,
+    category: category.value,
+  };
+
+  transactions.push(transaction);
+
+  addTransactionDOM(transaction);
+
+  updateValues();
+
+  updateLocalStorage();
+
+  text.value = "";
+  amount.value = "";
+  category.value = "";
+}
 
 // Generate random ID
 function generateID() {
