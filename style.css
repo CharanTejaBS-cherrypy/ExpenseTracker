@@ -159,6 +159,32 @@ input[type='number'] {
   max-height: 400px; 
   overflow-y: auto;  
 }*/
+.transaction-type {
+  display: flex;
+  justify-content: space-between; /* Ensure buttons are evenly spaced */
+  margin-bottom: 10px; /* Add some margin to separate from other elements */
+}
+.btn-half {
+  background-color: #c60766c3;
+  width: calc(50% - 5px); /* Adjust the width as needed */
+  transition: transform 0.2s ease; /* Add transition effect */
+}
+
+/* .btn-half:first-child {
+  margin-right: 10px; /* Add some space between buttons 
+} */
+
+.btn-half:hover {
+  background-color: #c60766;
+  transform: scale(1); /* Increase size on hover */
+}
+
+
+.btn-half:active {
+  background-color: #ff0000;
+  transform: scale(0.9); /* Decrease size when clicked */
+}
+
 
 .list {
 list-style-type: none;
