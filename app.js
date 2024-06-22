@@ -10,7 +10,7 @@ const categoryContainer = document.getElementById("category-container");
 
 const categories = [
   { name: "Food", icon: "fas fa-utensils" },
-  { name: "Travel", icon: "fas fa-bus" },
+  { name: "Transp", icon: "fas fa-bus" },
   { name: "Film", icon: "fas fa-film" },
   { name: "Shop", icon: "fas fa-shopping-bag" },
   { name: "Health", icon: "fas fa-heartbeat" },
