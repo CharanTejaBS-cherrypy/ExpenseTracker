@@ -1,6 +1,7 @@
-# Expense Tracker
+# [Expense Tracker](https://charantejabs-cherrypy.github.io/ExpenseTracker/)
 
 Expense Tracker is a simple web application that helps you manage your income and expenses. You can add transactions, categorize them, and visualize your spending habits using charts.
+##### Link: https://charantejabs-cherrypy.github.io/ExpenseTracker/
 
 ## Table of Contents
 
