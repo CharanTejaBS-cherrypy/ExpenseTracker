@@ -175,7 +175,7 @@ input[type='number'] {
 } */
 
 .btn-half:hover {
-  background-color: #c60766;
+  background-color: #87ef9d;
   transform: scale(1); /* Increase size on hover */
 }
 
